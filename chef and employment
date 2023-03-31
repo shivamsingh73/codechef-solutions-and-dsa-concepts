@@ -14,7 +14,7 @@ int main() {
 	    }
 	    sort(arr,arr+n);
 	    
-	    cout<<(n+k)/2;
+	    cout<<arr[(n+k)/2]<<endl;
 	    
 	    
 	}
