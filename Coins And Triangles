@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+
+	while(t--){
+	   int n;	int i=0;int count=0,sum=0;
+	   cin>>n;
+	   
+	  while(n>sum){
+	      i++;
+	      sum+=i;
+	      count++;
+	  }
+	
+	if(n==sum){
+	    cout<<count<<endl;
+	}
+	else{
+	    cout<<count-1<<endl;
+	}
+	
+	}
+	return 0;
+}
