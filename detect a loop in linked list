@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+    int flag;
+};
+
+void push(Node** head,int new_data){
+    Node* new_node = new Node();
+    new_node->data= new_data;
+    new_node->next = *head;
+    *head = new_node;
+}
+
+bool detectloop(Node* l){         //check for node if traverse or not
+    while(l!=NULL){
+        
+        if(l->flag==1)
+        return true;
+        
+        l->flag=1;
+        l=l->next;
+    }
+    return false;
+}
+
+int main()
+{
+    
+    struct Node* head = NULL;
+ 
+    push(&head, 20);
+    push(&head, 4);
+    push(&head, 20);
+    push(&head, 15);
+    push(&head, 10);
+ 
+    /* Create a loop for testing */
+   // head->next->next = head;
+ 
+    if (detectloop(head))
+        cout << "Loop is there";
+    else
+        cout << "No Loop is there";
+ 
+    return 0;
+}
