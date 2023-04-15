@@ -1,0 +1,72 @@
+//insert node at front
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+
+void insertatstart (Node** head,int value){
+    Node* new_node = new Node();
+    new_node->data = value;
+    new_node->next = (*head);
+    *head = new_node;
+}
+
+void insertatgivennode(Node* prev_node,int value){
+    if(prev_node==NULL){
+        return;
+    }else{
+        Node* new_node = new Node();
+        new_node->data=value;
+        new_node->next=prev_node->next;
+        prev_node->next=new_node;
+    }
+}
+
+void insertatend(Node** head , int value){
+    Node* new_node = new Node();
+    Node* last = *head;
+    new_node->data= value;
+    new_node->next=NULL;
+    
+    if(*head==NULL){
+        return;
+    }else{
+        while(last->next!=NULL){
+            last = last->next;
+            
+        }
+        last->next = new_node;
+      // return;
+    }
+}
+
+void print(Node* head){
+    while(head!=NULL){
+        cout<<head->data<<"->";
+        head=head->next;
+        }
+}
+
+
+
+
+int main(){
+    
+    Node* head = NULL;
+    insertatstart(&head,56);
+    insertatstart(&head,43);
+     insertatstart(&head,90);
+      insertatstart(&head,84);
+      
+      insertatgivennode(head,35);
+      
+      insertatend(&head,12);
+    
+    print(head);
+    return 0;
+}
