@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+
+void push(Node** head,int new_data){
+    Node* new_node = new Node();
+
+    new_node->data=new_data;
+    new_node->next= (*head);
+    (*head)=new_node;
+
+}
+
+
+void printList(Node* node){
+    while(node->next!=NULL){
+        cout<<node->data<<" ";
+        node=node->next;
+    }
+}
+
+bool search(Node* head,int key){
+    Node* current = head;
+    while(current!=NULL){
+        if(current->data==key)
+        return true;
+        current=current->next;
+    }
+    return false;
+}
+
+
+
+int main(){
+
+Node* head=NULL;
+int key=21;
+
+   push(&head, 10);
+    push(&head, 30);
+    push(&head, 11);
+    push(&head, 21);
+    push(&head, 14);
+
+printList(head);
+
+// vector<int>v;
+
+// Node* temp =head;
+
+// while(temp!=NULL){
+//     v.push_back(temp->data);
+//     temp=temp->next;
+// }
+
+// vector<int>::iterator it;
+//     find(v.begin(),v.end(),key);
+//     if(it==v.end()){
+//       cout<<"NO"<<endl;
+//     }else{
+//      cout<<"YES"<<endl;
+//     }
+
+
+
+//Iterative approach
+
+search(head,key);
+search(head, key) ? cout << "Yes" : cout << "No";
+
+
+    return 0;
+}
