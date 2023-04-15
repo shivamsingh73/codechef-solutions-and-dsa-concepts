@@ -32,7 +32,7 @@ int detectLoop(Node* l){
 int main()
 {
     
-    struct Node* head = NULL;
+     Node* head = NULL;
  
     push(&head, 20);
     push(&head, 4);
