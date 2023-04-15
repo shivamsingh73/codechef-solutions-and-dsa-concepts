@@ -1,0 +1,34 @@
+//insert node at front
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+
+void insertatstart (Node** head,int value){
+    Node* new_node = new Node();
+    new_node->data = value;
+    new_node->next = (*head);
+    *head = new_node;
+}
+
+void print(Node* head){
+    while(head!=NULL){
+        cout<<head->data;
+        head=head->next;
+        }
+}
+
+int main(){
+    
+    Node* head = NULL;
+    insertatstart(&head,56);
+    insertatstart(&head,43);
+    
+    print(head);
+    return 0;
+}
