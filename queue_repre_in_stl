@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void print(queue<int> qu){
+    while(!qu.empty()){
+        cout<<qu.front()<<" ";
+        qu.pop();
+    }
+}
+
+int main(){
+    
+    queue<int>q;
+    q.push(39);
+    q.push(12)
+    ;
+    q.push(23);
+    
+   // q.pop();
+    
+    print(q);
+    return 0;
+}
