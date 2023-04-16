@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* left;
+    Node* right;
+};
+
+Node* createNode(int value){
+    Node* n = new Node();
+    
+    n->data=value;
+    n->left=NULL;
+    n->right=NULL;
+    
+    return n;
+    
+}
+
+
+
+int main(){
+    Node* p=createNode(5);
+      Node* p1=createNode(8);
+        Node* p2=createNode(6);
+    
+    
+    p->left=p1;
+    p->right=p2;
+    
+    
+  
+    
+    return 0;
+}
