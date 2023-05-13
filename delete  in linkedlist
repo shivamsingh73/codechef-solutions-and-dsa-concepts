@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    int data;
+    Node* next;
+}
+
+void deleteNode(Node* head,int val){
+    if(head==NULL){
+        return;
+    }
+    
+    if(head->data==val){
+        Node* current = head;
+        head=head->next;
+        delete(current);
+    }
+     deleteNode(head->link, val);
+}
+
+int main(){
+    --------
+    return 0;
+}
