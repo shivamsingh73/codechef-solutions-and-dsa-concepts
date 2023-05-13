@@ -1,0 +1,68 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+
+};
+
+void push(Node** head,int value){
+    Node* newnode = new Node();
+    newnode->data=value;
+    newnode->next=(*head);
+    (*head)=newnode;
+}
+
+
+void print(Node* head){
+    while(head!=NULL){
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+}
+
+void sumofll(Node* l1,Node* l2){
+    vector<int>st;
+    while(l1!=NULL && l2!=NULL){
+        st.push_back(l1->data+l2->data);
+        
+        l1=l1->next;
+        l2=l2->next;
+    }
+     for (auto& it : st) {
+        cout << it << ' ';
+    }
+}
+
+
+
+int main() {   
+
+   
+   Node* linkedList1=NULL;
+   Node* linkedList2=NULL;
+   
+    push(&linkedList1,2);
+      push(&linkedList1,3);
+        push(&linkedList1,4);
+        
+        push(&linkedList2,1);
+         push(&linkedList2,2);
+          push(&linkedList2,3);
+          
+          
+          print(linkedList1);
+          cout<<endl;
+          print(linkedList2);
+          
+          cout<<endl;
+          
+          
+          sumofll(linkedList1,linkedList2);
+    
+    
+    return 0;
+}
