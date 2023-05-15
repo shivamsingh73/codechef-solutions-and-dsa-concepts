@@ -1,0 +1,89 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+
+void MoveNode(Node** destRef,Node** sourceRef);
+
+Node* SortedMerge(Node* l1,Node* l2){
+   
+   Node dummy;
+   
+   Node* tail = &dummy;
+   
+   dummy.next = NULL;
+   
+   while(true){
+       if(l1==NULL){
+           tail->next = l2;
+           break;
+       }else if(l2==NULL){
+           tail->next=l1;
+           break;
+       }
+       
+       if(l1->data <= l2->data){
+           MoveNode(&(tail->next),&l1);
+       }else{
+           MoveNode(&(tail->next),&l2);
+       }
+       
+       tail = tail->next;
+   }
+    
+    return (dummy.next);
+    
+    
+}
+
+ void MoveNode(Node** destRef, Node** sourceRef)
+{
+    /* the front source node */
+    Node* newNode = *sourceRef;
+    assert(newNode != NULL);
+ 
+    /* Advance the source pointer */
+    *sourceRef = newNode->next;
+ 
+    /* Link the old dest of the new node */
+    newNode->next = *destRef;
+ 
+    /* Move dest to point to the new node */
+    *destRef = newNode;
+}
+
+void push(Node** head,int value){
+    Node* newnode = new Node();
+    newnode->data=value;
+    newnode->next=(*head);
+    (*head)=newnode;
+}
+
+
+void print(Node* head){
+    while(head!=NULL){
+        cout<<head->data<<" ";
+        head=head->next;
+    }
+}
+
+int main() {
+    Node* linkedList1=NULL;
+   Node* linkedList2=NULL;
+   
+    push(&linkedList1,2);
+      push(&linkedList1,3);
+        push(&linkedList1,4);
+        
+        push(&linkedList2,1);
+         push(&linkedList2,5);
+          push(&linkedList2,6);
+          
+
+    return 0;
+}
