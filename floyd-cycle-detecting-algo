@@ -22,7 +22,7 @@ int detectLoop(Node* l){
     while(slow_p && fast_p && fast_p->next!=NULL){
         slow_p = slow_p->next;
         fast_p = fast_p->next->next;
-        if(slow_p == fast_p->next){
+        if(slow_p == fast_p){
             return 1;
         }
     }
