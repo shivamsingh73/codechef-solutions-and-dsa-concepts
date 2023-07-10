@@ -1,0 +1,76 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* left;
+    Node* right;
+
+};
+
+Node* createNode(int val){
+    Node* new_node = new Node();
+    new_node->data=val;
+    new_node->left=NULL;
+    new_node->right=NULL;
+
+    return new_node;
+
+}
+
+void preorderTraversal(Node* head){
+    if(head!=NULL){
+        cout<<head->data<<"->";
+        preorderTraversal(head->left);
+        preorderTraversal(head->right);
+    }
+}
+
+void inOrderTraversal(Node* head){
+    if(head!=NULL){
+       inOrderTraversal(head->left);
+       cout<<head->data<<" ";
+       inOrderTraversal(head->right);
+
+    }
+}
+
+void postOrder(Node* head){
+    if(head!=NULL){
+        postOrder(head->left);
+        postOrder(head->right);
+        cout<<head->data<<" ";
+    }
+}
+
+Node* search(Node* head,int key){
+    if(head==NULL){
+        return NULL;
+    }else if(head->data==key){
+         return head;  
+    }else if(head->data>key){
+        return search(head->left,key);
+    }else{
+        return search(head->right,key);
+    }
+}
+
+
+
+int main(){
+
+    Node* root=createNode(20);
+    root->left=createNode(10);
+    root->right=createNode(15);
+    root->left->left=createNode(4);
+
+    preorderTraversal(root);
+    cout<<endl;
+    inOrderTraversal(root);
+    cout<<endl;
+    postOrder(root);
+    cout<<endl;
+
+    return 0;
+}
