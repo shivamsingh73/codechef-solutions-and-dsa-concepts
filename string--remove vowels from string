@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void removevowels(string &str) {  // Pass the string by reference to modify it
+    int len = str.length();
+    int index = 0;  // Index to keep track of the new position for characters
+
+    for (int i = 0; i < len; i++) {
+        if (!(str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U' ||
+              str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')) {
+            str[index] = str[i];  // Only copy non-vowel characters to their new position
+            index++;
+        }
+    }
+
+    str.resize(index);  // Resize the string to the new length without vowels
+}
+
+int main() {
+    string str = "kjhgasdfjkaeiou";
+    removevowels(str);
+    cout << str;
+
+    return 0;
+}
